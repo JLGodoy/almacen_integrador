@@ -54,11 +54,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'users.middleware.AutoLogout',
+    'users.middleware.SessionTimeoutMiddleware',
 ]
 
-AUTO_LOGOUT_DELAY = 20
-
+SESSION_EXPIRE_SECONDS = 30
+SESSION_COOKIE_AGE = 30
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+SESSION_SAVE_EVERY_REQUEST = True
 ROOT_URLCONF = 'almacen.urls'
 
 TEMPLATES = [
@@ -79,7 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'almacen.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -93,7 +94,6 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
