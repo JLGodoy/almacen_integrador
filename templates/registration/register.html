@@ -44,14 +44,13 @@
             <form class="form-lognin" method="post">
               {% csrf_token %}
               <div class="form-label-group">
-                <!--input type="text" id="userName" class="form-control" placeholder="Username" name="username"required-->
+                <input type="text" id="userName" class="form-control" placeholder="Username" name="username"required>
                 <!--input type="text" id="userName" class="form-control" placeholder="Nombre" name="first_name"required-->
                 <!--input type="email" id="userName" class="form-control" placeholder="Email" name="email"required-->
-                {{form.as_p}}
               </div>
               <div class="form-label-group">
-                <!--input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password1" required-->
-                <!--input type="password" id="inputPassword" class="form-control" placeholder="Confirmar password" name="password2" required-->
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password1" required>
+                <input type="password" id="inputPassword" class="form-control" placeholder="Confirmar password" name="password2" required>
               </div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase"type="submit" name="submitButton">Sign in</button>
             </form>

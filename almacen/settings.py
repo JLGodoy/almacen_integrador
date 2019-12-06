@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'warehouse',
+    'sucursal.apps.SucursalConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'almacen.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'warehouse',
+        'NAME': 'WareHouse',
         'USER': 'almacen',
         'PASSWORD': 'almacen',
         'HOST': '192.168.0.8',
