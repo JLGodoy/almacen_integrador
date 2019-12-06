@@ -55,16 +55,17 @@ def register(request):
 
 
 
-def changePassword(request):
+def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)
             messages.success(request, 'Contraseña cambiada con éxito')
-            return redirect('change_password')
+            return redirect('/')
         else:
             messages.error(request, 'Error!')
+            return redirect('change_password')
     else:
         form = PasswordChangeForm(request.user)
     context = {'form': form}
