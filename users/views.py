@@ -8,14 +8,16 @@ from django.urls import reverse_lazy
 from .forms import RegistroForm, UCFconMail
 from .models import usuario
 from django.http import HttpResponse
+from pprint import pprint
+
+
 
 
 def index (request):
-    return HttpResponse(request.session.exists())
-    if request.session:
+    if request.user.is_authenticated:
         return render(request,"index.html")
-    else:
-        return render(request,'registration/login.html')
+    return render(request,'registration/login.html')
+        
 
 def loginpage (request):
     return render(request,'login.html')
