@@ -15,12 +15,8 @@ from pprint import pprint
 
 def index (request):
     if request.user.is_authenticated:
-        return render(request,"index.html")
+        return render(request,"dashboard.html")
     return render(request,'registration/login.html')
-        
-
-def loginpage (request):
-    return render(request,'login.html')
 
 def login (request):
     if request.method == "POST":
@@ -28,7 +24,7 @@ def login (request):
         if user is not None:
             log(request, user)
             request.session['user'] = request.POST['username']
-            return render(request,"index.html")
+            return render(request,"dashboard.html")
     return redirect('/')
 
 
@@ -45,7 +41,7 @@ def register(request):
             password = form.cleaned_data['password1']
             user = authenticate(username = username, password = password)
             log(request, user)
-            return render(request,"index.html")
+            return render(request,"dashboard.html")
 
     else:
         form = UserCreationForm()
