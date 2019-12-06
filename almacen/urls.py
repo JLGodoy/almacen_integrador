@@ -19,10 +19,10 @@ from warehouse import views
 from warehouse.views import RegisterView
 
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
+    path('sucursal/', include('sucursal.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register', views.register, name = 'register'),
     path('password', views.changePassword, name='password')

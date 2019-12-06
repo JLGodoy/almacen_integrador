@@ -1,0 +1,9 @@
+{% if latest_almacen_list %}
+    <ul>
+    {% for inventario in latest_almacen_list %}
+        <li><a href="/sucursal/editar/{{ inventario.IdAlmacen }}">{{ inventario.NombreAlmacen }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay almacenes disponibles.</p>
+{% endif %}
