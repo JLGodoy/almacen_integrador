@@ -9,6 +9,7 @@ from .forms import RegistroForm, UCFconMail
 from .models import usuario
 from django.http import HttpResponse
 from pprint import pprint
+from django.contrib.sessions.models import Session
 
 
 
@@ -20,6 +21,10 @@ def index (request):
 
 def login (request):
     if request.method == "POST":
+        my_old_sessions = Session.objects.all()
+        for row in my_old_sessions:
+           if row.get_decoded().get("user") == request.POST['username']:
+              row.delete()
         user = authenticate(username = request.POST['username'], password = request.POST['password'])
         if user is not None:
             log(request, user)
