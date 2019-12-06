@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'warehouse',
         'USER': 'almacen',
         'PASSWORD': 'almacen',
-        'HOST': '192.168.64.2',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
