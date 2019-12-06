@@ -162,12 +162,13 @@
                   <p class="mb-1 mt-3 font-weight-semibold">{{ user.username }}</p>
                   <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
                 </div>
-                <a href="{% url 'perfil_url' %}" class="dropdown-item">Mi perfil<i class="dropdown-item-icon ti-dashboard"></i></a>
+                {% comment %} <a href="{% url 'perfil_url' %}" class="dropdown-item">Mi perfil<i class="dropdown-item-icon ti-dashboard"></i></a> {% endcomment %}
+                <a href="" class="dropdown-item">Mi perfil<i class="dropdown-item-icon ti-dashboard"></i></a>
                 {% comment %} <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a> {% endcomment %}
                 {% comment %} <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a> {% endcomment %}
                 {% comment %} <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a> {% endcomment %}
                 {% comment %} <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a> {% endcomment %}
-                <a href="{% url 'logout_url' %}" class="dropdown-item">Logout<i class="dropdown-item-icon ti-power-off"></i></a>
+                <a href="{% url 'logout' %}" class="dropdown-item">Logout<i class="dropdown-item-icon ti-power-off"></i></a>
               </div>
             </li>
           </ul>
@@ -304,10 +305,10 @@
               <div class="collapse" id="almacen">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'almacen_listado_url' %}">Listado</a>
+                    <a class="nav-link" href="">Listado</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'almacen_registro_url' %}">Nuevo almacen</a>
+                    <a class="nav-link" href="{% url 'sucursal_agregar_url' %}">Nuevo almacen</a>
                   </li>
                 </ul>
               </div>
