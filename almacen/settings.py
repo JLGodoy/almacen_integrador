@@ -53,10 +53,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    #'users.middleware.AutoLogout',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 
-AUTO_LOGOUT_DELAY = 20
+SESSION_EXPIRE_SECONDS = 30
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 
 ROOT_URLCONF = 'almacen.urls'
 
@@ -88,7 +90,7 @@ DATABASES = {
         'NAME': 'warehouse',
         'USER': 'almacen',
         'PASSWORD': 'almacen',
-        'HOST': '192.168.0.8',
+        'HOST': '192.168.64.2',
         'PORT': '3306',
     }
 }
