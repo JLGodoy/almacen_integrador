@@ -25,4 +25,5 @@ urlpatterns = [
     path('sucursal/', include('sucursal.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register', views.register, name = 'register'),
-        path('change_password', views.change_password, name='password')
+    path('change_password', views.change_password, name='password')
+]
