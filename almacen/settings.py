@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'almacen.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'warehouse',
+        'NAME': 'WareHouse',
         'USER': 'almacen',
         'PASSWORD': 'almacen',
         'HOST': '192.168.0.8',
