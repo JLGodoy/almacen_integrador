@@ -8,30 +8,34 @@ from django.urls import reverse_lazy
 from .forms import RegistroForm, UCFconMail
 from .models import usuario
 from django.http import HttpResponse
-from pprint import pprint
 from django.contrib.sessions.models import Session
 
 
-
-
 def index (request):
-    if request.user.is_authenticated:
-        return render(request,"dashboard.html")
-    return render(request,'registration/login.html')
+    if request.session.is_empty():
+        return render(request,'registration/login.html') 
+    return render(request,"dashboard.html")
 
 def login (request):
     if request.method == "POST":
+        #killSession(request)
+
         my_old_sessions = Session.objects.all()
         for row in my_old_sessions:
-           if row.get_decoded().get("user") == request.POST['username']:
-              row.delete()
+            if row.get_decoded().get("username") == request.POST['username']:
+                row.delete()
         user = authenticate(username = request.POST['username'], password = request.POST['password'])
         if user is not None:
             log(request, user)
-            request.session['user'] = request.POST['username']
+            request.session['username'] = request.POST['username']
             return render(request,"dashboard.html")
     return redirect('/')
 
+def killSession(request):
+    my_old_sessions = Session.objects.all()
+    for row in my_old_sessions:
+        return HttpResponse(row.get_decoded())
+    
 
 def logout(request):
     out(request)
@@ -47,10 +51,8 @@ def register(request):
             user = authenticate(username = username, password = password)
             log(request, user)
             return render(request,"dashboard.html")
-
     else:
         form = UserCreationForm()
-
     context = {'form' : form}
     return render(request,'registration/register.html', context)
 
