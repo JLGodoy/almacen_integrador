@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'warehouse',
+    'users',
     'sucursal.apps.SucursalConfig',
     'django.contrib.admin',
     'django.contrib.auth',
