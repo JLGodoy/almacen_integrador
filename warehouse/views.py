@@ -12,7 +12,8 @@ from .models import usuario
 def index (request):
     return render(request,'index.html')
 
-
+def loginpage (request):
+    return render(request,'login.html')
 
 def login (request):
     #return render(request,'login.html')
