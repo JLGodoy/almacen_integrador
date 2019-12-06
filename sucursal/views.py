@@ -51,6 +51,19 @@ def editar(request, almacen_id):
             instancia = form.save(commit=False)
             # Podemos guardarla cuando queramos
             instancia.save()
+            return redirect('/sucursal')
 
     # Si llegamos al final renderizamos el formulario
     return render(request, "sucursal/edit.html", {'form': form})
+
+def baja(request, almacen_id):
+    instancia = Almacenes.objects.get(IdAlmacen=almacen_id)
+
+    form = AlmacenesForm(instance=instancia)
+
+    if request.method == "GET":
+        instancia.IdEstatus = 1
+        instancia.save()
+        return redirect('/sucursal')
+
+

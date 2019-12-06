@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'clear_cache',
     'widget_tweaks',
+    'jquery',
 ]
 
 MIDDLEWARE = [
@@ -88,7 +89,7 @@ DATABASES = {
         'NAME': 'warehouse',
         'USER': 'almacen',
         'PASSWORD': 'almacen',
-        'HOST': '192.168.0.8',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
