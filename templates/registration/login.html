@@ -1,7 +1,7 @@
 {% extends 'login.html' %}
 
 {% block content %}
-    <form method="POST">
+    <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
         <div class="form-group">
           <label class="label">Usuario</label>
