@@ -24,4 +24,5 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('sucursal/', include('sucursal.urls')),
     path('users/', include('users.urls')),
+    path('roles/', include('roles.urls'))
 ]

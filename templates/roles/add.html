@@ -1,0 +1,45 @@
+{% extends 'dashboard.html' %}
+{% load widget_tweaks %}
+{% block titulo %} Registro de rol {% endblock %}
+{% block titulo2 %} Registro de rol nuevo {% endblock %}
+
+{% block contenido %}
+<form method="POST">
+{% csrf_token %}
+<div class="row">
+    <div class="col-lg-6">
+        <p class="card-description"> Nombre del rol *</p>
+        <div class="form-group">
+            <div class="input-group">
+            <div class="input-group-prepend bg-info">
+                <span class="input-group-text bg-transparent">
+                <i class="fa fa-user text-white"></i>
+                </span>
+            </div>
+                {% render_field form.NombreRol class+="form-control" type="text" placeholder="Coloca el nombre" aria-describedby="colored-addon1"%}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <p class="card-description"> Asignar permisos *</p>
+    </div>
+    {% for permisos in permisos_list %}
+    <div class="col-lg-3">
+        <div class="form-check form-check-flat">
+            <label class="form-check-label">
+            <input id="{{ permisos.CampoId }}" name="{{ permisos.CampoId }}" type="checkbox" class="form-check-input"> {{ permisos.NombrePermiso }} <i class="input-helper"></i></label>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-6">
+    <button type="submit" class="btn btn-success mr-2"><i class="fa fa-plus"></i> Registrar</button>
+    </div>
+</div>
+</form>
+{% endblock %}

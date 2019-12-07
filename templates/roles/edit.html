@@ -1,0 +1,30 @@
+{% extends 'dashboard.html' %}
+{% load widget_tweaks %}
+{% block titulo %} Edición de rol {% endblock %}
+{% block titulo2 %} Edición de rol nuevo {% endblock %}
+
+{% block contenido %}
+<form method="POST">
+{% csrf_token %}
+<div class="row">
+    <div class="col-lg-6">
+        <p class="card-description"> Nombre del rol *</p>
+        <div class="form-group">
+            <div class="input-group">
+            <div class="input-group-prepend bg-info">
+                <span class="input-group-text bg-transparent">
+                <i class="fa fa-user text-white"></i>
+                </span>
+            </div>
+                {% render_field form.NombreRol class+="form-control" type="text" placeholder="Coloca el nombre" aria-describedby="colored-addon1"%}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+    <button type="submit" class="btn btn-success mr-2"><i class="fa fa-refresh"></i> Actualizar</button>
+    </div>
+</div>
+</form>
+{% endblock %}

@@ -34,6 +34,7 @@ SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'sucursal.apps.SucursalConfig',
+    'roles.apps.RolesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
